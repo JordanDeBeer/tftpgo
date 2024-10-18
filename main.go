@@ -11,6 +11,7 @@ import (
 
 // readHandler is called when client starts file download from server
 func readHandler(filename string, rf io.ReaderFrom) error {
+	fmt.Fprintf(os.Stdout, "read: %v\n", filename)
 	file, err := os.Open(fmt.Sprintf("%v/%v", "/etc/tftpgo", filename))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
